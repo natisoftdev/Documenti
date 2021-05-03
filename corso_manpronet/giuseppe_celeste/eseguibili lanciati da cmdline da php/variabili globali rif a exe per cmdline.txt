@@ -1,0 +1,5 @@
+// C:\ms4w\Apache\htdocs\build\manpronet\_ntx\ntxconst.inc
+
+$exeGenPdfNtx = "C:\\Program Files (x86)\\NatiSoft S.r.l. Bologna\\GenPdfNtx\\GenPdfNtx.exe";
+$exeCreaShapefileVani = "C:\\Program Files (x86)\\NatiSoft srl Bologna\\MpnetRoomShapeFromDb\\mpnet_room_shape_from_db.exe";
+$exeEstraiLayersDwg = "C:\\Program Files (x86)\\Natisoft\\EstraiLayersDwg\\estrai_nomi_layers.exe";

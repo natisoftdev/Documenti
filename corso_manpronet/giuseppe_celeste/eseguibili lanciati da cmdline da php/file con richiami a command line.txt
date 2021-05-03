@@ -1,0 +1,135 @@
+// C:\ms4w\Apache\htdocs\build\manpronet\webrilev\piani\jhp\crea_shape_file_vani.php
+
+$cmd = "\"\"$exeCreaShapefileVani\" \"$database\" $IdCommessa $IdEdificio $IdPiano\"";
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// C:\ms4w\Apache\htdocs\build\manpronet\webrilev\crea_coperture\recupera_layers.inc
+
+$cmd = "\"\"$exeEstraiLayersDwg\" \"$database\" $IdDwgPiano 1\"";
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// C:\ms4w\Apache\htdocs\build\manpronet\webrilev\crea_coperture\jhp\genera_shapefile.php
+
+$cmd = "\"\"$exeEstraiLayersDwg\" \"$database\" $IdDwgPiano 2\"";
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// C:\ms4w\Apache\htdocs\build\manpronet\fornitori\ordini\genera_e_scarica_modulo.inc
+
+$cmd = "\"\"$exeGenPdfNtx\" \"$database\" \"$fileXmlSql\" \"$filePdf\" $params\"";
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// C:\ms4w\Apache\htdocs\build\manpronet\energia\scarico_allegati\esporta.php
+
+$cmd = "\"\"C:\\Program Files\\7-Zip\\7z.exe\" a \"$zipDestinazione\" \"$rootDestinazione\"\" ";
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// C:\ms4w\Apache\htdocs\build\manpronet\energia\anagrafe_orari_multipli_v2\modifica_spec\jhp\messaggio_a_referenti.inc
+
+	exec("c:\ms4w\pdf_beit\pdf_beit.exe $_SESSION[name_odbc] spec $IdTestataModificheRef $IdAllegatoFittizio");
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// C:\ms4w\Apache\htdocs\build\manpronet\energia\anagrafe_orari_multipli_v2\inserisci\jhp\messaggio_a_referenti.inc
+
+	exec("c:\ms4w\pdf_beit\pdf_beit.exe $_SESSION[name_odbc] base $IdTestataModificheRef $IdAllegatoFittizio");
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// C:\ms4w\Apache\htdocs\build\manpronet\clienti_autorizzatori22\sal_contr_gest_cobo\edit_sal\jhp\genera_pdf_extra.php
+
+$cmd = "\"\"$exeGenPdfNtx\" \"$database\" \"$fileXmlSql\" \"$fileAbsPdf\" $params\"";
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// C:\ms4w\Apache\htdocs\build\manpronet\clienti_autorizzatori22\sal_contr_gest_cobo\edit_sal\jhp\genera_pdf.php
+
+$cmd = "\"\"$exeGenPdfNtx\" \"$database\" \"$fileXmlSql\" \"$fileAbsPdf\" $params\"";
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// C:\ms4w\Apache\htdocs\build\manpronet\clienti_autorizzatori22\gantt_inverso_planning\voci_planning\all_docs_mp.php
+
+$cmd = "\"\"C:\\Program Files\\7-Zip\\7z.exe\" a \"$zipDestinazione\" \"$rootDestinazione\"\" ";
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// C:\ms4w\Apache\htdocs\build\manpronet\clienti_autorizzatori\sal_contr_gest_cobo\edit_sal\jhp\genera_pdf_extra_rev1.php
+
+$cmd = "\"\"$exeGenPdfNtx\" \"$database\" \"$fileXmlSql\" \"$fileAbsPdf\" $params\"";
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// C:\ms4w\Apache\htdocs\build\manpronet\clienti_autorizzatori\sal_contr_gest_cobo\edit_sal\jhp\genera_pdf_extra.php
+
+$cmd = "\"\"$exeGenPdfNtx\" \"$database\" \"$fileXmlSql\" \"$fileAbsPdf\" $params\"";
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// C:\ms4w\Apache\htdocs\build\manpronet\clienti_autorizzatori\sal_contr_gest_cobo\edit_sal\jhp\genera_pdf.php
+
+$cmd = "\"\"$exeGenPdfNtx\" \"$database\" \"$fileXmlSql\" \"$fileAbsPdf\" $params\"";
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// C:\ms4w\Apache\htdocs\build\manpronet\clienti_autorizzatori\gantt_inverso_planning\voci_planning\all_docs_mp.php
+
+$cmd = "\"\"C:\\Program Files\\7-Zip\\7z.exe\" a \"$zipDestinazione\" \"$rootDestinazione\"\" ";
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// C:\ms4w\Apache\htdocs\build\manpronet\clienti_autorizzatori\gantt_inverso_planning\gantt_per_mesi\test_scarico_docs.php
+
+$cmd = "\"\"C:\\Program Files\\7-Zip\\7z.exe\" a \"$zipDestinazione\" \"$rootDestinazione\"\" ";
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// C:\ms4w\Apache\htdocs\build\manpronet\clienti_autorizzatori\gantt_inverso_planning\gantt_per_mesi\scarico_docs.php
+
+$cmd = "\"\"C:\\Program Files\\7-Zip\\7z.exe\" a \"$zipDestinazione\" \"$rootDestinazione\"\" ";
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// C:\ms4w\Apache\htdocs\build\manpronet\affidatari\spedizione_mod_prg\genera_pdf.inc
+
+$cmd = "\"\"$exeGenPdfNtx\" \"$database\" \"$fileXmlSql\" \"$fileAbsPdf\" $params\"";
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// C:\ms4w\Apache\htdocs\build\manpronet\affidatari\ordini\scarica_docs_ordini.php
+
+$cmd = "\"\"C:\\Program Files\\7-Zip\\7z.exe\" a \"$zipDestinazione\" \"$rootDestinazione\"\" ";
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// C:\ms4w\Apache\htdocs\build\manpronet\affidatari\ordini\jhp\genera_allegati_ordini-loop.inc
+
+$cmd = "\"\"$exeGenPdfNtx\" \"$database\" \"$xmlPath\" \"$fileAbsPdf\" $params\"";
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// C:\ms4w\Apache\htdocs\build\manpronet\affidatari\gantt_inverso_planning\voci_planning\all_docs_mp.php
+
+$cmd = "\"\"C:\\Program Files\\7-Zip\\7z.exe\" a \"$zipDestinazione\" \"$rootDestinazione\"\" ";
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// C:\ms4w\Apache\htdocs\build\manpronet\affidatari\gantt_inverso_planning\gantt_per_mesi\test_scarico_docs.php
+
+$cmd = "\"\"C:\\Program Files\\7-Zip\\7z.exe\" a \"$zipDestinazione\" \"$rootDestinazione\"\" ";
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// C:\ms4w\Apache\htdocs\build\manpronet\affidatari\gantt_inverso_planning\gantt_per_mesi\scarico_docs.php
+
+$cmd = "\"\"C:\\Program Files\\7-Zip\\7z.exe\" a \"$zipDestinazione\" \"$rootDestinazione\"\" ";
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// C:\ms4w\Apache\htdocs\build\manpronet\affidatari\apri_chiudi_ordini_mp_v2\jhp\genera_allegati_ordini-loop.inc
+
+$cmd = "\"\"$exeGenPdfNtx\" \"$database\" \"$xmlPath\" \"$fileAbsPdf\" $params\"";

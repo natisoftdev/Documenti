@@ -1,0 +1,1 @@
+﻿Data Source=localhost;Initial Catalog={0};Connect Timeout=0;Integrated Security=False;Persist Security Info=True;User ID=sa;Password=3QC9j0cVY+"wl0&h

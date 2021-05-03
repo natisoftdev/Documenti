@@ -1,0 +1,5 @@
+$cmd = "\"\"$exeCreaShapefileVani\" \"$database\" $IdCommessa $IdEdificio $IdPiano\"";
+$cmd = "\"\"$exeEstraiLayersDwg\" \"$database\" $IdDwgPiano 2\"";
+$cmd = "\"\"$exeGenPdfNtx\" \"$database\" \"$fileXmlSql\" \"$filePdf\" $params\"";
+$cmd = "\"\"C:\\Program Files\\7-Zip\\7z.exe\" a \"$zipDestinazione\" \"$rootDestinazione\"\" ";
+exec("c:\ms4w\pdf_beit\pdf_beit.exe $_SESSION[name_odbc] spec $IdTestataModificheRef $IdAllegatoFittizio");

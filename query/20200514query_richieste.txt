@@ -1,0 +1,87 @@
+SELECT DISTINCT 
+                      Richieste.IdRich, Richieste.dataVistoDEC, Richieste.utenteVistoDEC, Richieste.NumRichiesta, Richieste.AnnoRichiesta, Richieste.DataRichiesta, 
+                      Richieste.TipoIntervento, Stati.DesStato AS statoRichiesta, Richieste.DataInizioP, Richieste.DataFineP, Richieste.DataEvasione, 
+                      Richieste.Descrizione + Richieste.Descrizione1 + Richieste.Descrizione2 AS Des, ElencoEdifici.ID AS IdEdificio, ElencoEdifici.Codice, 
+                      ElencoEdifici.EdificioBreve AS Nome, ElencoEdifici.Indirizzo, ElencoEdifici.CITTA AS Comune, ElencoEdifici.PROVINCIA, ElencoEdifici.CAP, 
+                      tblPgPropietari.Nome AS Ente, Richieste.Classificazione, tblUtUtilizzatori.Nome AS Utilizzatore, tblUtUtilizzatori.cdc, 
+                      tblUtUtilizzatori.Descrizione AS UtilizzzatoreDescrizione, tblUtUtilizzatori.Indirizzo AS UtilizzzatoreIndirizzo, Richieste.NumOrdineFonte, Richieste.AnnoOrdineFonte, 
+                      Richieste.Richiedente, Ordini.NumOrdine, Ordini.AnnoOrdine, StatiOrdini.DesStato AS statoOrdine, Ordini.Note AS NoteOrdine, Ordini.Intervento, Ordini.DataScadenza, 
+                      Ordini.DataSospensione, Ordini.NoteSospensione, Ordini.DataPresaInCarico, Ordini.NotaInterna, 
+                      ElencoEdifici.EdificioBreve + ' ' + ElencoEdifici.Indirizzo + ' ' + ElencoEdifici.CITTA + ' ' + ElencoEdifici.PROVINCIA + ' ' + ElencoEdifici.CAP AS LocalizzazioneString, 
+                      Ordini.DescrizioneIntervento + ' ' + Ordini.DescrizioneIntervento1 + ' ' + Ordini.DescrizioneIntervento2 AS OrdiniDescrizione, 
+                      TabellaGradoUrgenza.GradoU + ' - ' + TabellaGradoUrgenza.Descrizione AS GradoUrgenza, TabellaGradoUrgenza.Descrizione AS GradoUrgenza_CID, 
+                      tblMestieri.Descrizione AS Mestiere, Ditte.Ditta, PianoLivello.CodiceAssLivello, DestinazioniDusoLivello.Destinazione AS UsoPianoLivello, 
+                      Ambiente.CodiceAssAmbiente, DestinazioniDuso.Destinazione AS UsoAmbiente, LTRIM(ComponentiAmbiente.IDComponente) 
+                      + ' - ' + ComponentiAmbiente.CodiceAssComponente AS ComponenteAmbiente, PianoLivello2.CodiceAssLivello AS CodiceAssLivello2, 
+                      DestinazioniDusoLivello2.Destinazione AS UsoPianoLivello2, Ambiente2.CodiceAssAmbiente AS CodiceAssAmbiente2, 
+                      DestinazioniDuso2.Destinazione AS UsoAmbiente2, LTRIM(ComponentiAmbiente2.IDComponente) 
+                      + ' - ' + ComponentiAmbiente2.CodiceAssComponente AS ComponenteAmbiente2, Richieste.TelefonoRif, Richieste.Operatore, Richieste.NumRifCli, 
+                      Richieste.AnnoRifCli, Richieste.CommRifCli, Richieste.Resp_tecnico, Richieste.TecnicoC, Richieste.Tecnico, Richieste.TecnicoSopraluogo, 
+                      Richieste.DataSopraluogoTecnico, Ordini.DataInizio, Ordini.DataFine, Risorse.NOME AS RisorsaOrdine, AbCentriDiCosto.DESC3 AS CentroDiCosto, 
+                      AbCentriDiCosto.CDC1, AbCentriDiCosto.CDC2, AbDiametroTubazione.DIAMETRO AS TubaturaDiametro, AbMaterialeTubazione.TIPO AS TubaturaTipo, 
+                      Richiedenti.Nome AS RichiedenteAssociato, PI_Pali.COD_COMPLETO + ' ' + PI_Pali.Codice AS Palo, PI_Quadri.COD_COMPLETO + ' ' + PI_Quadri.Codice AS Quadro, 
+                      Richieste.VAutorizzazione, Richieste.DataAutorizzazione, Richieste.Stato, Richieste.NoteAnnullamento, Ordini.VistoCliente, Ordini.DataVistoCliente, 
+                      Ordini.VistoUtente, Ordini.IdOrd, Ordini.StatoOrd, tblUtPersonale.Nome AS Personale, Richieste.PersonaEsteso, Richieste.DocSanitaria, Richieste.Salma, 
+                      Richieste.Regime, RegimePazienti.Regime AS RegimePazienti, Richieste.OggettoTrasporto, Richieste.CodiceCollo, TrasportoMateriali.Materiale AS TrasportoMateriali,
+                       AusilioPazienti.Codice + ' - ' + AusilioPazienti.Ausilio AS AusilioPazienti, tblUtUtilizzatori2.Nome AS Utilizzatore2, 
+                      ElencoEdifici2.EdificioBreve + ' ' + ElencoEdifici2.Indirizzo + ' ' + ElencoEdifici2.CITTA + ' ' + ElencoEdifici2.PROVINCIA + ' ' + ElencoEdifici2.CAP AS LocalizzazioneString2
+FROM         Richieste LEFT OUTER JOIN
+                      tblPgAffidatari ON Richieste.IdAffidatario = tblPgAffidatari.IdAffidatario INNER JOIN
+                      Stati ON Richieste.Stato = Stati.IDStato INNER JOIN
+                      ElencoEdifici ON Richieste.IDCommessa = ElencoEdifici.IdCommessa AND Richieste.Localizzazione = ElencoEdifici.ID INNER JOIN
+                      UtentiEdifici ON ElencoEdifici.IdCommessa = UtentiEdifici.IdCommessa AND ElencoEdifici.ID = UtentiEdifici.IdEdificio INNER JOIN
+                      Utenti ON UtentiEdifici.IdUtente = Utenti.Id LEFT OUTER JOIN
+                      Ordini ON Richieste.IDCommessa = Ordini.IDCommessaRichiesta AND Richieste.NumRichiesta = Ordini.NumRichiesta AND 
+                      Richieste.AnnoRichiesta = Ordini.AnnoRichiesta LEFT OUTER JOIN
+                      StatiOrdini ON Ordini.StatoOrd = StatiOrdini.IDStato LEFT OUTER JOIN
+                      tblUtUtilizzatori ON Richieste.IDCommessa = tblUtUtilizzatori.IdCommessa AND Richieste.IdUtilizzatore = tblUtUtilizzatori.IdUtilizzatore LEFT OUTER JOIN
+                      tblPgPropietari ON ElencoEdifici.IdProprietario = tblPgPropietari.IdPropietario LEFT OUTER JOIN
+                      TabellaGradoUrgenza ON Richieste.IDCommessa = TabellaGradoUrgenza.IdCommessa AND 
+                      Richieste.GradoUrgenza = TabellaGradoUrgenza.GradoU LEFT OUTER JOIN
+                      tblMestieri ON Richieste.IDCommessa = tblMestieri.IdCommessa AND Richieste.IdMestiere = tblMestieri.IdMestiere LEFT OUTER JOIN
+                      Ditte ON Ordini.Assegnazione = Ditte.IDDitta LEFT OUTER JOIN
+                      Ambiente ON Richieste.IdAmbiente = Ambiente.IDAmbiente AND Richieste.Localizzazione = Ambiente.IdEdificio AND 
+                      Richieste.IDCommessa = Ambiente.IdCommessa LEFT OUTER JOIN
+                      DestinazioniDuso ON Ambiente.IdCommessa = DestinazioniDuso.IdCommessa AND 
+                      Ambiente.IdDestinazioneduso = DestinazioniDuso.IdDestinazioneuso LEFT OUTER JOIN
+                      PianoLivello ON Richieste.IdLivello = PianoLivello.idPiano AND Richieste.Localizzazione = PianoLivello.IdEdificio AND 
+                      Richieste.IDCommessa = PianoLivello.IdCommessa LEFT OUTER JOIN
+                      DestinazioniDusoLivello ON PianoLivello.IdCommessa = DestinazioniDusoLivello.IdCommessa AND 
+                      PianoLivello.IdDestUso = DestinazioniDusoLivello.IdDUL LEFT OUTER JOIN
+                      Risorse ON Ordini.IdRisorsa = Risorse.ID LEFT OUTER JOIN
+                      UnificaSituazioneFinanziaria ON UnificaSituazioneFinanziaria.IdCommessa = Richieste.IDCommessa AND 
+                      UnificaSituazioneFinanziaria.id = Richieste.CodIntervento LEFT OUTER JOIN
+                      AbCentriDiCosto ON Richieste.IdCentroDiCosto = AbCentriDiCosto.ID LEFT OUTER JOIN
+                      AbDiametroTubazione ON Richieste.IdDiametroTubazione = AbDiametroTubazione.ID LEFT OUTER JOIN
+                      AbMaterialeTubazione ON Richieste.IdMaterialeTubazione = AbMaterialeTubazione.ID LEFT OUTER JOIN
+                      Tecnici AS TecniciC ON Richieste.TecnicoC = TecniciC.Tecnico LEFT OUTER JOIN
+                      Richiedenti ON Richieste.IDCommessa = Richiedenti.IdCommessa AND Richieste.IdRichiedente = Richiedenti.IdRichiedente LEFT OUTER JOIN
+                      PI_Pali ON Richieste.IdPaloPI = PI_Pali.ID LEFT OUTER JOIN
+                      PI_Quadri ON Richieste.IdQuadroPI = PI_Quadri.ID LEFT OUTER JOIN
+                      Contabilità ON Contabilità.IDCommessa = Ordini.IDCommessa AND Contabilità.NumOrdine = Ordini.NumOrdine AND 
+                      Contabilità.AnnoOrdine = Ordini.AnnoOrdine LEFT OUTER JOIN
+                      ComponentiAmbiente ON Richieste.IDCommessa = ComponentiAmbiente.IdCommessa AND Richieste.Localizzazione = ComponentiAmbiente.IdEdificio AND 
+                      Richieste.IdComponente = ComponentiAmbiente.IDComponente LEFT OUTER JOIN
+                      ElencoEdifici AS ElencoEdifici2 ON Richieste.IDCommessa = ElencoEdifici2.IdCommessa AND Richieste.IdEdificio2 = ElencoEdifici2.ID LEFT OUTER JOIN
+                      Ambiente AS Ambiente2 ON Richieste.IdAmbiente2 = Ambiente2.IDAmbiente AND Richieste.IdEdificio2 = Ambiente2.IdEdificio AND 
+                      Richieste.IDCommessa = Ambiente2.IdCommessa LEFT OUTER JOIN
+                      DestinazioniDuso AS DestinazioniDuso2 ON Ambiente2.IdCommessa = DestinazioniDuso2.IdCommessa AND 
+                      Ambiente2.IdDestinazioneduso = DestinazioniDuso2.IdDestinazioneuso LEFT OUTER JOIN
+                      PianoLivello AS PianoLivello2 ON Richieste.IdLivello2 = PianoLivello2.idPiano AND Richieste.IdEdificio2 = PianoLivello2.IdEdificio AND 
+                      Richieste.IDCommessa = PianoLivello2.IdCommessa LEFT OUTER JOIN
+                      DestinazioniDusoLivello AS DestinazioniDusoLivello2 ON PianoLivello2.IdCommessa = DestinazioniDusoLivello2.IdCommessa AND 
+                      PianoLivello2.IdDestUso = DestinazioniDusoLivello2.IdDUL LEFT OUTER JOIN
+                      ComponentiAmbiente AS ComponentiAmbiente2 ON Richieste.IDCommessa = ComponentiAmbiente2.IdCommessa AND 
+                      Richieste.IdEdificio2 = ComponentiAmbiente2.IdEdificio AND Richieste.IdComponente2 = ComponentiAmbiente2.IDComponente LEFT OUTER JOIN
+                      tblUtPersonale ON Richieste.IDCommessa = tblUtPersonale.IdCommessa AND Richieste.IdPersona = tblUtPersonale.IdPersona LEFT OUTER JOIN
+                      UtentiUtilizzatori ON tblUtUtilizzatori.IdCommessa = UtentiUtilizzatori.IdCommessa AND 
+                      tblUtUtilizzatori.IdUtilizzatore = UtentiUtilizzatori.IdUtilizzatore LEFT OUTER JOIN
+                      RegimePazienti ON Richieste.Regime = RegimePazienti.ID LEFT OUTER JOIN
+                      TrasportoMateriali ON Richieste.TrasportoMateriali = TrasportoMateriali.ID LEFT OUTER JOIN
+                      AusilioPazienti ON Richieste.Ausilio = AusilioPazienti.ID LEFT OUTER JOIN
+                      tblUtUtilizzatori AS tblUtUtilizzatori2 ON Richieste.IDCommessa = tblUtUtilizzatori2.IdCommessa AND 
+                      Richieste.IdUtilizzatore2 = tblUtUtilizzatori2.IdUtilizzatore
+WHERE     (Utenti.Nome = 'testver') AND (Richieste.IDCommessa = 1) AND (ElencoEdifici.Tipo = 0 OR
+                      ElencoEdifici.Tipo IS NULL) AND (Richieste.Stato = 1) AND (TabellaGradoUrgenza.Specifici = 0 OR
+                      TabellaGradoUrgenza.Specifici IS NULL)
+ORDER BY DataRichiesta DESC

@@ -1,0 +1,5 @@
+C:\Program Files\7-Zip\7z.exe
+c:\ms4w\pdf_beit\pdf_beit.exe
+C:\Program Files (x86)\NatiSoft S.r.l. Bologna\GenPdfNtx\GenPdfNtx.exe
+C:\Program Files (x86)\NatiSoft srl Bologna\MpnetRoomShapeFromDb\mpnet_room_shape_from_db.exe
+C:\Program Files (x86)\Natisoft\EstraiLayersDwg\estrai_nomi_layers.exe

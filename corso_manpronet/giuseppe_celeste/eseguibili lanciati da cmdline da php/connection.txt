@@ -1,0 +1,1 @@
+﻿Data Source=localhost;Initial Catalog=mpnet_setup_webportal;Connect Timeout=;Integrated Security=False;Persist Security Info=False;User ID=sa;Password=3QC9j0cVY+"wl0&h;

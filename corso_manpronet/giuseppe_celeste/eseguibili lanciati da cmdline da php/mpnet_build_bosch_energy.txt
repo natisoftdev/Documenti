@@ -1,0 +1,8 @@
+connection=Data Source=localhost;Initial Catalog=mpnet_build_bosch_energy;Connect Timeout=;Integrated Security=False; Persist Security Info=True;User ID=sa;Password=3QC9j0cVY+"wl0&h;
+
+xml-path=E:\build\supernet\_modelli_base
+
+pdf-base-path=E:\build\manpronet\bosch_energy\energia\orari_base
+
+pdf-spec-path=E:\build\manpronet\bosch_energy\energia\orari_speciali
+
